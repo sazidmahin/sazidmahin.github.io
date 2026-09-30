@@ -1,0 +1,26 @@
+# Navigation + homepage cards. The order here is the order on the site.
+# `id` must equal the collection name in _config.yml.
+- id: blog
+  title: Blog
+  icon: "✍️"
+  description: Longer write-ups and opinions.
+- id: notes
+  title: Notes
+  icon: "🗒️"
+  description: Quick reference notes and cheat sheets.
+- id: coding
+  title: Coding
+  icon: "💻"
+  description: Snippets, patterns and how-tos.
+- id: journal
+  title: Journal
+  icon: "📓"
+  description: Day-to-day thoughts and logs.
+- id: projects
+  title: Projects
+  icon: "🚀"
+  description: Things I'm building.
+- id: learning
+  title: Learning
+  icon: "🎓"
+  description: Courses, books and study trails.

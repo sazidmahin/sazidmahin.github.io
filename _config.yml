@@ -1,0 +1,43 @@
+# ---- Site settings -------------------------------------------------------
+title: "Mahin's Digital Notebook"
+tagline: "What I learn, build, and explore."
+description: "A personal knowledge base: blog, notes, code, journal, projects and learning."
+author: Mahin
+url: "https://sazidmahin.github.io"
+baseurl: ""
+
+# ---- Markdown ------------------------------------------------------------
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM              # tables, fenced code blocks, task lists
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: text
+    line_numbers: false
+
+# ---- Sections (collections) ----------------------------------------------
+# One block per section. To add a new one, see README.md ("Add a new section").
+collections:
+  blog:     { output: true, permalink: /blog/:path/ }
+  notes:    { output: true, permalink: /notes/:path/ }
+  coding:   { output: true, permalink: /coding/:path/ }
+  journal:  { output: true, permalink: /journal/:path/ }
+  projects: { output: true, permalink: /projects/:path/ }
+  learning: { output: true, permalink: /learning/:path/ }
+
+# Every Markdown file in a section automatically uses the "entry" layout.
+defaults:
+  - { scope: { path: "", type: blog },     values: { layout: entry } }
+  - { scope: { path: "", type: notes },    values: { layout: entry } }
+  - { scope: { path: "", type: coding },   values: { layout: entry } }
+  - { scope: { path: "", type: journal },  values: { layout: entry } }
+  - { scope: { path: "", type: projects }, values: { layout: entry } }
+  - { scope: { path: "", type: learning }, values: { layout: entry } }
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules

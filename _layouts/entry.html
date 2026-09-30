@@ -1,0 +1,15 @@
+---
+layout: default
+---
+{%- assign sec = site.data.sections | where: "id", page.collection | first -%}
+<article class="entry">
+  <p class="crumbs"><a href="{{ '/' | append: page.collection | append: '/' | relative_url }}">← {{ sec.title | default: page.collection }}</a></p>
+  <h1>{{ page.title }}</h1>
+  <div class="meta">
+    {% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>{% endif %}
+    {%- assign words = content | number_of_words -%}
+    <span>{{ words | divided_by: 200 | plus: 1 }} min read</span>
+  </div>
+  {% include tags.html tags=page.tags %}
+  <div class="prose">{{ content }}</div>
+</article>

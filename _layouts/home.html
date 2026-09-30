@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<section class="hero">
+  <h1>{{ page.title | default: site.title }}</h1>
+  <p>{{ site.tagline }}</p>
+  <form action="{{ '/search/' | relative_url }}" method="get" role="search">
+    <input id="search-input" type="search" name="q" placeholder="Search everything…" aria-label="Search">
+  </form>
+</section>
+
+<h2 class="section-title">Sections</h2>
+<div class="grid">
+  {%- for s in site.data.sections %}
+  {%- assign count = site[s.id] | size %}
+  <a class="card section-card" href="{{ '/' | append: s.id | append: '/' | relative_url }}">
+    <div class="icon">{{ s.icon }}</div>
+    <h3>{{ s.title }}</h3>
+    <p>{{ s.description }}</p>
+    <span class="count">{{ count }} {% if count == 1 %}entry{% else %}entries{% endif %}</span>
+  </a>
+  {%- endfor %}
+</div>
+
+<h2 class="section-title">Recently added</h2>
+<div class="grid">
+  {%- assign recent = site.documents | sort: "date" | reverse %}
+  {%- for doc in recent limit: 6 %}{% include entry-card.html doc=doc %}{% endfor %}
+</div>
+
+<div class="prose">{{ content }}</div>

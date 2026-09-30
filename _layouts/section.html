@@ -1,0 +1,16 @@
+---
+layout: default
+---
+{%- assign sec = site.data.sections | where: "id", page.collection | first -%}
+<h1>{% if sec %}{{ sec.icon }} {% endif %}{{ page.title }}</h1>
+{% if sec.description %}<p class="lead">{{ sec.description }}</p>{% endif %}
+<div class="prose">{{ content }}</div>
+
+{%- assign docs = site[page.collection] | sort: "date" | reverse -%}
+{% if docs.size == 0 %}
+  <p class="empty">Nothing here yet. Add a Markdown file to <code>_{{ page.collection }}/</code>.</p>
+{% else %}
+  <div class="grid">
+    {%- for doc in docs %}{% include entry-card.html doc=doc %}{% endfor %}
+  </div>
+{% endif %}

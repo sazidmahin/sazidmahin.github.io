@@ -1,0 +1,8 @@
+{%- comment -%} Usage: {% include tags.html tags=doc.tags %} {%- endcomment -%}
+{%- if include.tags and include.tags.size > 0 -%}
+<ul class="tags">
+  {%- for t in include.tags %}
+  <li><a class="tag" href="{{ '/tags/' | relative_url }}#{{ t | slugify }}">#{{ t }}</a></li>
+  {%- endfor %}
+</ul>
+{%- endif -%}

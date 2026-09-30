@@ -1,0 +1,22 @@
+/* Rouge syntax highlighting, themed via CSS variables (light + dark). */
+:root {
+  --c-comment:#6a737d; --c-keyword:#7c3aed; --c-string:#0f7b4d; --c-number:#b45309;
+  --c-func:#2563eb; --c-type:#0e7490; --c-op:#57534e; --c-err:#dc2626; --c-ins:#0f7b4d; --c-del:#dc2626;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --c-comment:#8b949e; --c-keyword:#c4b5fd; --c-string:#86efac; --c-number:#fdba74; --c-func:#93c5fd; --c-type:#67e8f9; --c-op:#d6d3d1; --c-err:#fca5a5; --c-ins:#86efac; --c-del:#fca5a5; }
+}
+:root[data-theme="dark"] { --c-comment:#8b949e; --c-keyword:#c4b5fd; --c-string:#86efac; --c-number:#fdba74; --c-func:#93c5fd; --c-type:#67e8f9; --c-op:#d6d3d1; --c-err:#fca5a5; --c-ins:#86efac; --c-del:#fca5a5; }
+
+.highlight .c, .highlight .ch, .highlight .cm, .highlight .cp, .highlight .cpf, .highlight .c1, .highlight .cs { color:var(--c-comment); font-style:italic; }
+.highlight .k, .highlight .kc, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .ow { color:var(--c-keyword); }
+.highlight .kt, .highlight .nc, .highlight .nn, .highlight .no, .highlight .bp, .highlight .nb { color:var(--c-type); }
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .s1, .highlight .ss { color:var(--c-string); }
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .l { color:var(--c-number); }
+.highlight .nf, .highlight .fm, .highlight .na, .highlight .nd, .highlight .nt, .highlight .nl { color:var(--c-func); }
+.highlight .o, .highlight .p, .highlight .pi { color:var(--c-op); }
+.highlight .err { color:var(--c-err); }
+.highlight .gi { color:var(--c-ins); }
+.highlight .gd { color:var(--c-del); }
+.highlight .gh, .highlight .gu, .highlight .gs { font-weight:bold; }
+.highlight .ge { font-style:italic; }

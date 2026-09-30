@@ -1,0 +1,13 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">📓 {{ site.title }}</a>
+    <nav class="nav" aria-label="Main">
+      {%- for s in site.data.sections %}
+      <a href="{{ '/' | append: s.id | append: '/' | relative_url }}"{% if page.url contains s.id and page.url != '/' %} aria-current="page"{% endif %}>{{ s.title }}</a>
+      {%- endfor %}
+      <a href="{{ '/tags/' | relative_url }}">Tags</a>
+      <a href="{{ '/search/' | relative_url }}" aria-label="Search">🔍</a>
+      <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle dark mode">🌓</button>
+    </nav>
+  </div>
+</header>
