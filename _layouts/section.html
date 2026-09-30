@@ -2,11 +2,16 @@
 layout: default
 ---
 {%- assign sec = site.data.sections | where: "id", page.collection | first -%}
-<h1>{% if sec %}{{ sec.icon }} {% endif %}{{ page.title }}</h1>
-{% if sec.description %}<p class="lead">{{ sec.description }}</p>{% endif %}
+{%- assign docs = site[page.collection] | sort: "date" | reverse -%}
+<header class="page-head" style="--sec: {{ sec.color | default: 'var(--accent)' }}">
+  {% if sec %}<div class="icon">{{ sec.icon }}</div>{% endif %}
+  <div>
+    <h1>{{ page.title }}</h1>
+    {% if sec.description %}<p class="lead">{{ sec.description }} · {{ docs.size }} {% if docs.size == 1 %}entry{% else %}entries{% endif %}</p>{% endif %}
+  </div>
+</header>
 <div class="prose">{{ content }}</div>
 
-{%- assign docs = site[page.collection] | sort: "date" | reverse -%}
 {% if docs.size == 0 %}
   <p class="empty">Nothing here yet. Add a Markdown file to <code>_{{ page.collection }}/</code>.</p>
 {% else %}

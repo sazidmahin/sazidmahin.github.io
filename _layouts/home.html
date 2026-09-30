@@ -2,22 +2,31 @@
 layout: default
 ---
 <section class="hero">
+  <span class="eyebrow">Personal knowledge base</span>
   <h1>{{ page.title | default: site.title }}</h1>
   <p>{{ site.tagline }}</p>
-  <form action="{{ '/search/' | relative_url }}" method="get" role="search">
-    <input id="search-input" type="search" name="q" placeholder="Search everything…" aria-label="Search">
+  <form class="hero-search" action="{{ '/search/' | relative_url }}" method="get" role="search">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input type="search" name="q" placeholder="Search notes, posts, code…" aria-label="Search">
+    <button type="submit">Search</button>
   </form>
+  <div class="stats">
+    <span><strong>{{ site.documents | size }}</strong> entries</span>
+    <span><strong>{{ site.data.sections | size }}</strong> sections</span>
+    {%- assign all_tags = site.documents | map: "tags" | join: "," | split: "," | uniq %}
+    <span><strong>{{ all_tags | size }}</strong> tags</span>
+  </div>
 </section>
 
-<h2 class="section-title">Sections</h2>
+<h2 class="section-title">Explore</h2>
 <div class="grid">
   {%- for s in site.data.sections %}
   {%- assign count = site[s.id] | size %}
-  <a class="card section-card" href="{{ '/' | append: s.id | append: '/' | relative_url }}">
+  <a class="card section-card" href="{{ '/' | append: s.id | append: '/' | relative_url }}" style="--sec: {{ s.color }}">
     <div class="icon">{{ s.icon }}</div>
     <h3>{{ s.title }}</h3>
     <p>{{ s.description }}</p>
-    <span class="count">{{ count }} {% if count == 1 %}entry{% else %}entries{% endif %}</span>
+    <span class="count">{{ count }} {% if count == 1 %}entry{% else %}entries{% endif %} <span aria-hidden="true">→</span></span>
   </a>
   {%- endfor %}
 </div>

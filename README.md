@@ -75,6 +75,7 @@ Example: a section called **Recipes**. Four small steps, no HTML or CSS:
    - id: recipes
      title: Recipes
      icon: "🍳"
+     color: "#14b8a6"
      description: Things I cook.
    ```
 3. Create the listing page `recipes/index.md`:
@@ -115,9 +116,12 @@ Container হলো একটি lightweight environment, যেটা app চ�
 - Tags come from `tags: [a, b]` in front matter. Each tag links to the **Tags** page.
 - **Search** (`/search/`) filters titles, tags and content in the browser using a generated `search.json`. Nothing external is involved.
 
-## Dark / light mode
+## Dark / light mode and colours
 
-Follows the system setting by default; the 🌓 button in the header overrides it and remembers the choice. Colours are the CSS variables at the top of `assets/css/main.css`. Change `--accent` to re-theme the whole site.
+Follows the system setting by default; the sun/moon button in the header overrides it and remembers the choice.
+
+- Site-wide colours are the CSS variables at the top of `assets/css/main.css`. Change `--accent` and `--accent-2` (the gradient) to re-theme everything.
+- Each section has its own colour (`color:` in `_data/sections.yml`), used for its card, badge and nav highlight.
 
 ## Changing the site name, tagline
 

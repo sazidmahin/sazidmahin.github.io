@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<h1>{{ page.title }}</h1>
+<header class="page-head"><div><h1>{{ page.title }}</h1></div></header>
 {%- assign all_tags = site.documents | map: "tags" | join: "," | split: "," | uniq | sort_natural %}
 <div class="tags-nav">
   <ul class="tags">
@@ -15,7 +15,7 @@ layout: default
   <h2>#{{ t }}</h2>
   <ul>
     {%- for doc in site.documents %}{% if doc.tags contains t %}
-    <li><a href="{{ doc.url | relative_url }}">{{ doc.title }}</a> <span class="meta" style="display:inline">· {{ doc.collection }}</span></li>
+    <li><a href="{{ doc.url | relative_url }}">{{ doc.title }}</a> <span class="muted">· {{ doc.collection }}</span></li>
     {%- endif %}{% endfor %}
   </ul>
 </section>

@@ -1,26 +1,33 @@
 # Navigation + homepage cards. The order here is the order on the site.
 # `id` must equal the collection name in _config.yml.
+# `color` is the section's accent (any CSS colour).
 - id: blog
+  color: "#8b5cf6"
   title: Blog
   icon: "✍️"
   description: Longer write-ups and opinions.
 - id: notes
+  color: "#0ea5e9"
   title: Notes
   icon: "🗒️"
   description: Quick reference notes and cheat sheets.
 - id: coding
+  color: "#10b981"
   title: Coding
   icon: "💻"
   description: Snippets, patterns and how-tos.
 - id: journal
+  color: "#f59e0b"
   title: Journal
   icon: "📓"
   description: Day-to-day thoughts and logs.
 - id: projects
+  color: "#f43f5e"
   title: Projects
   icon: "🚀"
   description: Things I'm building.
 - id: learning
+  color: "#6366f1"
   title: Learning
   icon: "🎓"
   description: Courses, books and study trails.

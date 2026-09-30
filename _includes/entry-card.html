@@ -1,12 +1,12 @@
 {%- comment -%} Usage: {% include entry-card.html doc=some_document %} {%- endcomment -%}
 {%- assign d = include.doc -%}
 {%- assign sec = site.data.sections | where: "id", d.collection | first -%}
-<article class="card entry-card">
+<article class="card entry-card" style="--sec: {{ sec.color | default: 'var(--accent)' }}">
   <div class="meta">
     {% if sec %}<span class="badge">{{ sec.icon }} {{ sec.title }}</span>{% endif %}
     {% if d.date %}<time datetime="{{ d.date | date_to_xmlschema }}">{{ d.date | date: "%b %-d, %Y" }}</time>{% endif %}
   </div>
-  <h3><a href="{{ d.url | relative_url }}">{{ d.title }}</a></h3>
+  <h3><a class="stretched" href="{{ d.url | relative_url }}">{{ d.title }}</a></h3>
   {%- assign summary = d.summary | default: d.excerpt | strip_html | normalize_whitespace | truncate: 140 -%}
   {% if summary != "" %}<p>{{ summary }}</p>{% endif %}
   {% include tags.html tags=d.tags %}
